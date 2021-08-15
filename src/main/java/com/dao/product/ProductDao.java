@@ -31,13 +31,9 @@ public class ProductDao implements ProductAbstractDao {
     }
 
     @Override
-    public void updateProduct(String listName, Product product) {
-        try {
-            SerenitySessionUtils.replaceObjectInSerenitySessionList(listName, product,
-                    "name", product.getName());
-        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-            e.printStackTrace();
-        }
+    public void updateProduct(String listName, Product product) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+        SerenitySessionUtils.replaceObjectInSerenitySessionList(listName, product,
+                "name", product.getName());
     }
 
 }

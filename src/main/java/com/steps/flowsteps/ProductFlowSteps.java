@@ -30,4 +30,11 @@ public class ProductFlowSteps extends AbstractSteps {
         productsSteps.openProductsDetailsPage(productName);
         productDetailsSteps.addProductToWishList(3);
     }
+
+    @Step
+    public void addProductReview(String productName, String reviewSummary) {
+        headerSteps.searchForProduct(productName);
+        productsSteps.openProductsDetailsPage(productName);
+        productDetailsSteps.addProductReview(reviewSummary);
+    }
 }

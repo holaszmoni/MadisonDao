@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 
 import com.steps.CartSteps;
 import com.steps.LoginSteps;
+import com.steps.ProductDetailsSteps;
 import com.steps.WishlistSteps;
 import com.steps.flowsteps.ProductFlowSteps;
 import com.tools.constants.EnvironmentConstants;
@@ -25,15 +26,13 @@ public class BaseTest {
     protected ProductFlowSteps productFlowSteps;
     @Steps
     protected WishlistSteps wishlistSteps;
+    @Steps
+    protected ProductDetailsSteps productDetailsSteps;
 
     @Before
     public void setup() {
         System.setProperty("env", "qa2-env");
         webdriver.navigate().to(EnvironmentConstants.BASE_URL);
-        System.setProperty("http.proxyHost", "localhost");
-        System.setProperty("http.proxyPort", "8080");
-        System.setProperty("https.proxyHost", "localhost");
-        System.setProperty("https.proxyPort", "8080");
     }
 
     @After

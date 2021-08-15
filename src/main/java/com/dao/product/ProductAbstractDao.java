@@ -1,5 +1,6 @@
 package com.dao.product;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 import com.google.inject.ImplementedBy;
@@ -15,5 +16,5 @@ public interface ProductAbstractDao {
 
     public Product getProductByName(String listName, String name);
 
-    public void updateProduct(String listName, Product product);
+    public void updateProduct(String listName, Product product) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException;
 }
