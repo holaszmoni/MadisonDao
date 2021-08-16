@@ -7,7 +7,7 @@ import net.thucydides.core.annotations.Step;
 
 import org.junit.Assert;
 
-import com.dao.product.ProductDao;
+import com.dao.product.ProductAbstractDao;
 import com.google.inject.Inject;
 import com.models.Cart;
 import com.models.Product;
@@ -19,7 +19,7 @@ public class CartSteps extends AbstractSteps {
     private static final long serialVersionUID = 1L;
     private CartPage cartPage;
     @Inject
-    ProductDao productDao;
+    ProductAbstractDao productDao;
 
     @Step
     public void verifyCartWithPercentageTaxesDetails(double taxRate) {

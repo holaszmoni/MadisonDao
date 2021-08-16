@@ -2,8 +2,8 @@ package com.steps;
 
 import net.thucydides.core.annotations.Step;
 
-import com.dao.product.ProductDao;
-import com.dao.productreview.ProductReviewDao;
+import com.dao.product.ProductAbstractDao;
+import com.dao.productreview.ProductReviewAbstractDao;
 import com.google.inject.Inject;
 import com.models.Product;
 import com.models.ProductReview;
@@ -15,9 +15,9 @@ public class ProductDetailsSteps extends AbstractSteps {
     private static final long serialVersionUID = 1L;
     private ProductDetailsPage productDetailsPage;
     @Inject
-    private ProductDao productDao;
+    private ProductAbstractDao productDao;
     @Inject
-    private ProductReviewDao productReviewDao;
+    private ProductReviewAbstractDao productReviewDao;
 
     public Product getProductDetails() {
         Product product = new Product();

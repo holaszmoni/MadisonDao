@@ -7,7 +7,7 @@ import net.thucydides.core.annotations.Step;
 
 import org.junit.Assert;
 
-import com.dao.product.ProductDao;
+import com.dao.product.ProductAbstractDao;
 import com.google.inject.Inject;
 import com.models.Product;
 import com.models.Wishlist;
@@ -19,7 +19,7 @@ public class WishlistSteps extends AbstractSteps {
     private static final long serialVersionUID = 1L;
     private WishlistPage wishlistPage;
     @Inject
-    ProductDao productDao;
+    ProductAbstractDao productDao;
 
     @Step
     public void emptyWishlistIfIsNotAlreadyEmpty() {
