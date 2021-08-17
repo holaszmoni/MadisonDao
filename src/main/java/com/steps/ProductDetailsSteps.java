@@ -49,7 +49,7 @@ public class ProductDetailsSteps extends AbstractSteps {
 
     @Step
     public void addProductReview(String summary) {
-        ProductReview productReview = ProductReviewFactory.getProductReviewInstance(productDetailsPage.getProductName());
+        ProductReview productReview = ProductReviewFactory.getProductReviewInstance(summary);
         //TODO complete the fields with data from productReview
         productReviewDao.saveProductReview(productReview);
     }
