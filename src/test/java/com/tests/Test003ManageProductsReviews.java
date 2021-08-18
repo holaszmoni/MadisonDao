@@ -23,12 +23,12 @@ public class Test003ManageProductsReviews extends BaseTest {
         productFlowSteps.addProductReview("Chelsea Tee", reviewSummary);
         //TODO approve the review from magento admin if that's the only way to make it visible under the product
         //...
-        productDetailsSteps.verifyProductReview(reviewSummary);
+        productFlowSteps.verifyProductReview("Chelsea Tee", reviewSummary);
     }
 
     @Override
     @Before
     public void tearDown() {
-        //ideally, here you could remove the review from admin
+        //ideally, here you could remove the review from admin to avoid having too many reviews on certain products
     }
 }

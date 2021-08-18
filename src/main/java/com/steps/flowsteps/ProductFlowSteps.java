@@ -37,4 +37,11 @@ public class ProductFlowSteps extends AbstractSteps {
         productsSteps.openProductsDetailsPage(productName);
         productDetailsSteps.addProductReview(reviewSummary);
     }
+
+    @Step
+    public void verifyProductReview(String productName, String reviewSummary) {
+        headerSteps.searchForProduct(productName);
+        productsSteps.openProductsDetailsPage(productName);
+        productDetailsSteps.verifyProductReview(reviewSummary);
+    }
 }

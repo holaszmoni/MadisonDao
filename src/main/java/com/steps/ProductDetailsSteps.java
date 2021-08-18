@@ -56,6 +56,6 @@ public class ProductDetailsSteps extends AbstractSteps {
 
     @Step
     public void verifyProductReview(String summary) {
-        //Product review  productReviewDao.getProductReviewBySummary()....
+        //Product review  productReviewDao.getProductReviewBySummary(summary)....
     }
 }
