@@ -34,6 +34,7 @@ public class ProductsPage extends BasePage {
 
     public void openProductDetailsPage(String productName) {
         clickOn(getProductContainer(productName).findElement(By.cssSelector(".product-name a")));
+
     }
 
 }
