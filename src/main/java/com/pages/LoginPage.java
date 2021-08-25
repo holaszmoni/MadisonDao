@@ -1,11 +1,13 @@
 package com.pages;
 
+import com.tools.constants.Constants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import com.tools.constants.EnvironmentConstants;
+import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
 
@@ -37,5 +39,33 @@ public class LoginPage extends BasePage {
             currentElement = currentElement.findElement(By.xpath("/ul/li[a/span[text()='" + pathNodes[i] + "']]"));
             actions.moveToElement(currentElement);
         }
+    }
+
+    //
+    @FindBy(name = "login[username]")
+    private WebElement emailInput;
+
+    @FindBy(name = "login[password]")
+    private WebElement passwordInput;
+
+    @FindBy(name = "send")
+    private WebElement loginBtn;
+
+    public void setEmailInput(String email) {
+        typeInto(emailInput, email);
+    }
+
+    public void setPasswordInput(String password) {
+        typeInto(passwordInput, password);
+    }
+
+    public void clickOnLoginBtn() {
+        clickOn(loginBtn);
+    }
+
+    public void logIn() {
+        setEmailInput(Constants.EMAIL);
+        setPasswordInput(Constants.PASSWORD);
+        clickOnLoginBtn();
     }
 }

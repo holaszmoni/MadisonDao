@@ -1,5 +1,8 @@
 package com.tools.constants;
 
+import com.tools.persistence.PropertyFileReader;
+import net.bytebuddy.utility.RandomString;
+
 import java.io.File;
 
 public class Constants {
@@ -12,4 +15,13 @@ public class Constants {
             + File.separator + "drivers" + File.separator;
 
     public static final String USERS_PASSWORD_UNIVERSAL = "test.123";
+
+    //
+    public static final String FIRSTNAME = PropertyFileReader.getEnvConstantsItem("FIRSTNAME");
+    public static final String MIDDLENAME = PropertyFileReader.getEnvConstantsItem("MIDDLENAME");
+    public static final String LASTNAME = PropertyFileReader.getEnvConstantsItem("LASTNAME");
+    public static final String EMAIL = RandomString.make(10) + "" + PropertyFileReader.getEnvConstantsItem("EMAIL");
+    public static final String PASSWORD = PropertyFileReader.getEnvConstantsItem("PASSWORD");
+
+
 }
