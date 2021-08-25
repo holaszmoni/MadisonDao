@@ -2,6 +2,7 @@ package com.tests;
 
 import java.lang.reflect.InvocationTargetException;
 
+import com.steps.MagentoLoginSteps;
 import net.bytebuddy.utility.RandomString;
 import net.serenitybdd.junit.runners.SerenityRunner;
 
@@ -15,15 +16,30 @@ public class Test003ManageProductsReviews extends BaseTest {
 
     @Before
     public void dataPrep() {
-        loginSteps.login();
+        loginSteps.loginWithConstantCredentials();
     }
 
     @Test
     public void test003ManageProductsReviews() throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-        productFlowSteps.addProductReview("Chelsea Tee", reviewSummary);
+        productFlowSteps.addProductReview("AVIATOR SUNGLASSES", reviewSummary);
+        productDetailsSteps.clickOnAddAReviewLink();
+        productDetailsSteps.setReviewRating("QUALITY", 3);
+        productDetailsSteps.setReviewRating("PRICE", 4);
+        productDetailsSteps.setReviewRating("VALUE", 1);
+        productDetailsSteps.reviewProduct("beautiful product(color, type)", "beautiful", "mona");
+        productDetailsSteps.clickOnSubmitReviewButton();
+
+        magentoLoginSteps.navigateToMagentoLoginPage();
+        magentoLoginSteps.magentoLogin();
+        magentoReviewsSteps.navigateThroughCategories("Catalog", "Reviews and Ratings", "Customer Reviews", "Pending Reviews");
+        magentoReviewsSteps.approveReviewsInMagento("AVIATOR SUNGLASSES" , "Approved");
+
         //TODO approve the review from magento admin if that's the only way to make it visible under the product
-        //...
-        productFlowSteps.verifyProductReview("Chelsea Tee", reviewSummary);
+        setup();
+        productFlowSteps.addProductReview("AVIATOR SUNGLASSES", reviewSummary);
+        productDetailsSteps.clickOnAddAReviewLink();
+        magentoLoginSteps.verifyPresenceOfReviewInReviewsSection("MONA");
+
     }
 
     @Override

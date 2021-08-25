@@ -29,4 +29,11 @@ public class LoginSteps extends AbstractSteps {
         loginPage.logIn();
     }
 
+    @Step
+    public void loginWithConstantCredentials() {
+        headerPage.clickOnAccount();
+        headerPage.clickOnALinkFromAccount("Log In");
+        loginPage.logInConstantsCredentials();
+    }
+
 }

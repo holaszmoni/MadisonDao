@@ -1,6 +1,7 @@
 package com.pages;
 
 import com.tools.constants.Constants;
+import com.tools.constants.ReviewConstants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -66,6 +67,11 @@ public class LoginPage extends BasePage {
     public void logIn() {
         setEmailInput(Constants.EMAIL);
         setPasswordInput(Constants.PASSWORD);
+        clickOnLoginBtn();
+    }
+    public void logInConstantsCredentials(){
+        setEmailInput(ReviewConstants.USER_TO_UPDATE_USERNAME);
+        setPasswordInput(ReviewConstants.USER_TO_UPDATE_PASSWORD);
         clickOnLoginBtn();
     }
 }

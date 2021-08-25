@@ -1,5 +1,6 @@
 package com.tests;
 
+import com.steps.*;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
@@ -10,14 +11,8 @@ import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
-import com.steps.CartSteps;
-import com.steps.LoginSteps;
-import com.steps.ProductDetailsSteps;
-import com.steps.WishlistSteps;
 import com.steps.flowsteps.ProductFlowSteps;
 import com.tools.constants.EnvironmentConstants;
-
-import java.util.concurrent.TimeUnit;
 
 @RunWith(SerenityRunner.class)
 public class BaseTest {
@@ -33,6 +28,11 @@ public class BaseTest {
     protected WishlistSteps wishlistSteps;
     @Steps
     protected ProductDetailsSteps productDetailsSteps;
+    @Steps
+    protected MagentoLoginSteps magentoLoginSteps;
+    @Steps
+    protected MagentoReviewsSteps magentoReviewsSteps;
+
 
     @Before
     public void setup() {
@@ -47,19 +47,4 @@ public class BaseTest {
     }
 }
 
-//    @Managed(uniqueSession = true)
-//    protected WebDriver driver;
-//
-//    @Before
-//    public void setUp(){
-//        driver.manage().window().maximize();
-//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-//        driver.get("http://qa2.dev.evozon.com");
-//    }
-//
-//    @After
-//    public void tearDown(){
-//        driver.quit();
-//    }
-//}
 

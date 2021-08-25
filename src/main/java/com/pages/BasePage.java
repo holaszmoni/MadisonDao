@@ -42,6 +42,13 @@ public class BasePage extends PageObject {
     public void typeInInputWithTitle(String inputTitle, String value) {
         typeInto(getDriver().findElement(By.cssSelector("input[title='" + inputTitle + "']")), value);
     }
+    public void typeInInputWithId(String inputId, String value){
+        typeInto(getDriver().findElement(By.cssSelector("input[id='" + inputId + "']")), value);
+    }
+    public void typeInInputWithName(String inputName, String value){
+        typeInto(getDriver().findElement(By.cssSelector("textarea[name='" + inputName + "']")), value);
+    }
+
 
     public WebElement getRandomElementFromList(By by) {
         List<WebElement> elements = getDriver().findElements(by);

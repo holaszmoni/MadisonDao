@@ -28,6 +28,7 @@ public class ProductDetailsSteps extends AbstractSteps {
         return product;
     }
 
+
     @Step
     public void addProductToCart(int quantity) {
         Product product = getProductDetails();
@@ -46,6 +47,35 @@ public class ProductDetailsSteps extends AbstractSteps {
         productDetailsPage.clickOnWebElementWithText("Add to Wishlist");
         productDao.saveProduct(SerenityKeyConstants.WISHLIST_PRODUCTS_LIST, product);
     }
+
+    @Step
+    public void clickOnAddAReviewLink() {
+        productDetailsPage.clickOnAddAReviewLink();
+    }
+
+    @Step
+    public void addProductReview(ProductReview productReview){
+        productDetailsPage.clickOnAddAReviewLink();
+        productDetailsPage.addReviewDetails(productReview);
+        productReviewDao.saveProductReview(productReview);
+    }
+    @Step
+    public void setReviewRating(String criteria, int nrStars) {
+        productDetailsPage.setReviewRating(criteria, nrStars);
+    }
+    @Step
+    public void reviewProduct(String comment, String summary, String nickname) {
+        productDetailsPage.getReviewForAProduct(comment);
+        productDetailsPage.getSummaryOfReview(summary);
+        productDetailsPage.getNicknameForReview(nickname);
+    }
+
+    @Step
+    public void clickOnSubmitReviewButton() {
+        productDetailsPage.clickOnSubmitReviewBtn();
+    }
+
+
 
     @Step
     public void addProductReview(String summary) {
